@@ -9,11 +9,29 @@
   <version>1</version>
   <packaging>pom</packaging>
 
+  <properties>
+    <java.version>11</java.version>
+    <maven.compiler.version>3.8.0</maven.compiler.version>
+
+  </properties>
 
 
   <modules>
     <module>karate-fizz-buzz-server</module>
     <module>karate-fizz-buzz-nrt</module>
   </modules>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven.compiler.version}</version>
+        <configuration>
+          <release>${java.version}</release>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 
 </project>

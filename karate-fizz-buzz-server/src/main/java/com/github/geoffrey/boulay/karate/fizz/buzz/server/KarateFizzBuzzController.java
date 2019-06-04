@@ -26,7 +26,7 @@ public class KarateFizzBuzzController {
     @GetMapping("/fizzbuzz/standard/interval")
     public ResponseEntity<List<FizzBuzzResult>> intervalUnitFizzbuzz(@RequestParam(value = "from") final int from, @RequestParam(value = "to") final int to) {
         final List<FizzBuzzResult> results = new ArrayList<>();
-        for(int i = from ; i < to ; i++) {
+        for(int i = from ; i <= to ; i++) {
            results.add(service.eval(i));
         }
         return new ResponseEntity<>(results, HttpStatus.OK);
