@@ -24,8 +24,8 @@ Feature: Fizz Buzz demo
         | 15 must return FizzBuzz | 15    | FizzBuzz  |
 
     Scenario: interval fizz buzz : 1 to 100
-      * def distinct = read('classpath:distinct.js')
-      * def sameInput = function(one,two) {return one.input == two.input;}
+      * def ordered = read('classpath:ordered.js')
+      * def lessThanOne = function(one,two) {return one.input == two.input - 1;}
       Given path "/fizzbuzz/standard/interval"
       And param from = "1"
       And param to = "100"
@@ -39,7 +39,8 @@ Feature: Fizz Buzz demo
               result: "#string"
            }
         """
-      And assert distinct(response, sameInput)
+      And assert response[0].input === 1
+      And assert ordered(response, lessThanOne)
 
 
 
