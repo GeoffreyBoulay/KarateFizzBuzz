@@ -25,7 +25,7 @@ Feature: Fizz Buzz demo
 
     Scenario: interval fizz buzz : 1 to 100
       * def ordered = read('classpath:ordered.js')
-      * def lessThanOne = function(one,two) {return one.input == two.input - 1;}
+      * def byOne = function(one,two) {return one.input == two.input - 1;}
       Given path "/fizzbuzz/standard/interval"
       And param from = "1"
       And param to = "100"
@@ -40,7 +40,7 @@ Feature: Fizz Buzz demo
            }
         """
       And assert response[0].input === 1
-      And assert ordered(response, lessThanOne)
+      And assert ordered(response, byOne)
 
 
 
