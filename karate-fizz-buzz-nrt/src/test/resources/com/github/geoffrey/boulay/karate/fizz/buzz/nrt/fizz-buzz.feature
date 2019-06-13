@@ -24,7 +24,7 @@ Feature: Fizz Buzz demo
         | 15 must return FizzBuzz | 15    | FizzBuzz  |
 
     Scenario: interval fizz buzz : 1 to 100
-      * def ordered = read('classpath:ordered.js')
+      * def sorted = read('classpath:sorted.js')
       * def byOne = function(one,two) {return one.input == two.input - 1;}
       Given path "/fizzbuzz/standard/interval"
       And param from = "1"
@@ -40,7 +40,7 @@ Feature: Fizz Buzz demo
            }
         """
       And assert response[0].input === 1
-      And assert ordered(response, byOne)
+      And assert sorted(response, byOne)
 
 
 
